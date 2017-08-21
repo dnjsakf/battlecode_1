@@ -1,0 +1,170 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+html, body{
+    width: 100%;
+    height: 100%;
+}
+
+nav.management-list{
+    z-index: 10;
+    position: absolute;
+    width: 300px;
+    height: 100%;
+    background: black;
+}
+
+
+nav.management-list > ul {
+    padding-left: 20px;
+}
+
+::-webkit-scrollbar{
+  display:none;
+}
+section.management-viewer{
+    overflow-y: scroll;
+    -ms-overflow-style:none;
+    z-index: 1;
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    padding-left: 300px;
+    background: rgb(171, 222, 213);
+}
+header.infomation{
+    width: 100%;
+    height: 50px;
+}
+
+footer.controller{
+    width: 100%;
+    height: 50px;
+}
+
+
+
+
+
+div.testcase{
+    height: 200px;
+    overflow-y: scroll;
+}
+div.testcase-title{
+    text-align:center;
+}
+div.case-row:nth-child(2n-1){
+    background: rgb(197, 247, 203);
+}
+div.case-row:nth-child(2n){
+    background: rgb(82, 32, 14);
+}
+div.case-row > div.case-title{
+    text-align: center;
+}
+div.case-data > div.input{
+    float: left;
+    width: 50%;
+    padding: 10px;
+}
+div.case-data > div.output{
+    float: left;
+    width: 50%;
+    padding: 10px;
+}
+div.clear{
+    clear:both;
+}
+
+
+
+.button{
+    width: 200px;
+    background-color: #4caf50;
+    border: none;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 4px;
+    overflow: hidden;
+}
+
+.buttoncancle{
+    background-color: #ff9e18;
+}
+
+.queslist{
+    background-color: #ff0f91;
+}
+
+.quesinsert{
+    background-color: #ff2340
+}
+
+
+ul{
+    list-style-type: none;
+}
+
+li{
+    list-style-type: none;
+    display: block;
+
+}
+
+
+
+h3{
+    text-align: center;
+
+}
+
+
+
+
+input[type=text]{
+    width: 90%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+textarea.quescontent{
+    width: 90%;src: id #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+textarea.varrarea{
+    width: 90%;
+    height: 90px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+
+h3{
+    text-align: center;
+}
+
+label{
+    font-size: 18px;
+    font-family: 나눔고딕;
+}
+
+.questionform{
+    margin-left: 30px;
+
+}

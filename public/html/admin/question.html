@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="관리자 문제 관리 페이지">
+    <meta name="viewport" content="width=device-width, user-scalable=1.0">
+
+    <title>관리자페이지 문제관리</title>
+
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+    <!-- css -->
+    <link rel="stylesheet" href="../css/admin/question.css">
+
+    <!-- js -->
+    <script type="text/javascript" src="../js/admin/ajax/question.js"></script>
+    <script type="text/javascript" src="../js/admin/question.js"></script>
+
+  </head>
+  <body>
+    <nav class='management-list'>
+      <ul>
+        <li>
+          <span>문제 리스트</span>
+        </li>
+        <li>
+          <span>문제 등록</span>
+        </li>
+      </ul>
+    </nav>
+    <section class='management-viewer'>
+      <header class='infomation'>
+
+      </header>
+      <section class='contents'>
+        <form class="new-question">
+          <!-- 문제이름 -->
+          <div class="data-row">
+            <div class="title subject">
+              <span>title</span>
+            </div>
+            <div class="data subject">
+              <input type="text" name="subject" placeholder="subejct">
+            </div>
+            <div class="clear"></div>
+          </div>
+          <!-- 작성자 -->
+          <div class="data-row">
+            <div class="title author">
+              <span>author</span>
+            </div>
+            <div class="data author">
+              <input type="text" name="author" value='admin' placeholder="author">
+            </div>
+            <div class="clear"></div>
+          </div>
+          <!-- 문제 내용 -->
+          <div class="data-row">
+            <div class="title text">
+              <span>text</span>
+            </div>
+            <div class="data text">
+              <textarea name="text"></textarea>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <!-- input 정보 -->
+          <div class="data-row">
+            <div class="title input_info">
+              <span>input_info</span>
+            </div>
+            <div class="data input_info">
+              <textarea name="input_info"></textarea>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <!-- output 정보 -->
+          <div class="data-row">
+            <div class="title output_info">
+              <span>output_info</span>
+            </div>
+            <div class="data varInfo">
+              <textarea name="output_info"></textarea>
+            </div>
+            <div class="clear"></div>
+          </div>
+          <!-- 테스트케이스 -->
+          <div class="testcase-title">
+              <strong>TESTCASE</strong>
+              <button type='button' onClick='addCase()'>+</button>
+          </div>
+          <div class="testcase">
+            <!-- 반복 -->
+            <div class="case-row" value=1>
+              <div class="case-title">
+                <strong>CASE-1</strong>
+                <button type='button' onClick='removeCase(1)'>x</button>
+              </div>
+              <div class="case-data">
+                <!-- inputs -->
+                <div class="input">
+                  <strong>INPUT</strong>
+                  <textarea name="input"></textarea>
+                </div>
+                <!-- outputs -->
+                <div class="output">
+                  <strong>OUTPUT</strong>
+                  <textarea name="output"></textarea>
+                </div>
+                <div style='clear:both'></div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </section>
+      <footer class='controller'>
+        <p class="buttons">
+          <input id='btn_save' type="button" value="save">
+          <input id='btn_cancle' type="button" value="cancle">
+        </p>
+      </footer>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <title>로그인</title>
+    <!-- login-form style -->
+    <link rel="stylesheet" href="../css/login/login.css">
+    <script type="text/javascript" src="../js/login/ajax/memberCheck.js"></script>
+    <script type="text/javascript" src="../js/login/loginEvent.js"></script>
+    <style media="screen">
+    </style>
+  </head>
+  <body>
+    <div class="logBlock">
+      <h1 class='log-title'>LOGIN</h1>
+      <form id='logForm' class='form-inline' method="post">
+        <!-- user-info -->
+        <div class="user-login-info">
+          <input class="form-control user-info username invalid" type="text" name="username" placeholder="Your email adress">
+          <input class="form-control user-info password invalid" type="password" name="password" placeholder="8~12">
+        </div>
+
+        <!-- reg-text -->
+        <!-- 회원가입 할 때만 나타남 -->
+        <div class="user-register hidden">
+          <input class="form-control user-info password-check regmode invalid" type="password" name="password-check" placeholder="password check">
+          <input class="form-control user-info displayName regmode invalid" type="text" name="displayName" placeholder="the first letter is char">
+        </div>
+
+        <!-- button -->
+        <div class="member">
+          <input class='btn btn-link local' type="button" value="login">
+          <input class='btn btn-link facebook' type="button" value="facebook">
+        </div>
+
+        <!-- 회원가입 할 때만 나타남 -->
+        <div class="non-member">
+          <input class='btn btn-link register' type="button" value="register">
+          <div class="regController hidden">
+            <input class="btn btn-link submit" type='button' value="submit">
+            <input class="btn btn-link cancel" type='button' value="cancel">
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

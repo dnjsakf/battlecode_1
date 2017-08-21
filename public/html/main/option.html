@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/earlyaccess/hanna.css">
+    <link rel="stylesheet" href="../css/main/option.css">
+    <script type="text/javascript" src='../js/main/option/optionEvent.js'></script>
+    <!-- <script type="text/javascript" src='../js/main/ajax/option.js'></script> -->
+
+  </head>
+  <body>
+    <button id='btn-option' type="button" onClick='option_init()'>공지사항</button>
+    <section class='option-setting'>
+      <div class="option-setting-background"></div>
+      <div class="option-setting-top-blank"></div>
+      <div class="option-setting-container">
+        <header class='option-title'>
+          <h3>Setting</h3>
+        </header>
+        <section class='option-contents'>
+          <section class='option-detail'>
+            <form id="setting-form">
+              <div class="option-target editor">
+                <label for="editor">Editor</label>
+                <div class="editor-setting panel">
+                  <!-- 테마설정 -->
+                  <div class="editor-theme">
+                    <label for="editor-theme-selecter">theme</label>
+                    <select class="editor-theme-selecter" name='theme'>
+                      <option value="midnight" selected>midnight</option>
+                      <option value="test">test</option>
+                    </select>
+                  </div>
+                  <!-- 글씨체 -->
+                  <div class="editor-fontfamily">
+                    <label for="editor-fontfamily-selecter">font</label>
+                    <select class="editor-fontfamily-selecter" name='font'>
+                      <option value="arial" selected>arial</option>
+                      <option value="hanna">hanna</option>
+                    </select>
+                  </div>
+                  <!-- 언어설정 -->
+                  <div class="editor-language">
+                    <label for="editor-language-selecter">language</label>
+                    <select class="editor-language-selecter" name='langauge'>
+                      <option value="python" selected>python</option>
+                      <option value="c">c</option>
+                      <option value="java">java</option>
+                    </select>
+                  </div>
+                  <!-- 글쓰크기 -->
+                  <div class="editor-fontsize">
+                    <label for="editor-fontsize-selecter">font-size</label>
+                    <select class="editor-fontsize-selecter" name='fontsize'>
+                      <option value="15" selected>15px</option>
+                      <option value="16">16px</option>
+                      <option value="17">17px</option>
+                      <option value="18">18px</option>
+                      <option value="19">19px</option>
+                      <option value="20">20px</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <!-- 기본설정 -->
+
+            </form>
+          </section>
+          <nav class='option-contents-controller'>
+            <button id='option-cancle-btn' type="button" name="cancel">cancel</button>
+            <button id='option-save-btn' type="button" name="save">save</button>
+          </nav>
+        </section>
+      </div>
+    </section>
+  </body>
+</html>

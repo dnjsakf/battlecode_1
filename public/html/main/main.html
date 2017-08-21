@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="battle-code-main-layout">
+    <meta name="viewport" content="width=device-width, user-scalable=1.0">
+
+    <title>BattleCode</title>
+
+    <!-- font -->
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/earlyaccess/hanna.css">
+
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js" charset=utf-8></script>
+
+    <!-- condemirror -->
+    <link rel="stylesheet" href="../../lib/codemirror/theme/midnight.css">
+    <link rel="stylesheet" href="../../lib/codemirror/theme/dracula.css">
+    <link rel="stylesheet" href="../../lib/codemirror/lib/codemirror.css">
+    <script type="text/javascript" src="../../lib/codemirror/lib/codemirror.js" charset=utf-8></script>
+    <script type="text/javascript" src="../../lib/codemirror/mode/javascript/javascript.js" charset=utf-8></script>
+
+    <!-- tutorial -->
+    <link rel="stylesheet" href="../../css/main/tutorial/tutorial.css">
+    <script type="text/javascript" src='../../js/main/tutorial/tutorialConfig.js'></script>
+
+    <script type="text/javascript" src="../../js/main/editor/editorConfig.js" charset=utf-8></script>
+
+    <!-- * html body 등 -->
+    <link rel="stylesheet" href="../../css/main/general.css">
+
+    <!-- ajax 이벤트 넣자 -->
+    <script type="text/javascript" src='../../js/main/mainEvent.js' charset=utf-8></script>
+
+    <!-- mina to login/logout -->
+    <link rel="stylesheet" href="../../css/main/header.css">
+    <link rel="stylesheet" href="../../css/main/tabRight/mypage.css">
+    <script type="text/javascript" src='../../js/main/ajax/myPage.js' charset=utf-8></script>
+    <script type="text/javascript" src='../../js/main/headerEvent.js' charset=utf-8></script>
+
+    <!-- editor -->
+    <link rel="stylesheet" href="../../css/main/editor.css">
+    <script type="text/javascript" src="../../js/main/ajax/compile.js" charset=utf-8></script>
+    <script type="text/javascript" src="../../js/main/editor/editorEvent.js" charset=utf-8></script>
+
+    <!-- left-tab -->
+    <link rel="stylesheet" href="../../css/main/tabLeft/tabLeft.css">
+    <script type="text/javascript" src='../../js/main/tabLeft/tabLeftEvent.js' charset=utf-8></script>
+
+    <!-- right-tab -->
+    <link rel="stylesheet" href="../../css/main/tabRight/tabRight.css">
+    <link rel="stylesheet" href="../../css/main/tabRight/algoDetail.css">
+    <script type="text/javascript" src='../../js/main/ajax/dashboard.js' charset=utf-8></script>
+    <script type="text/javascript" src='../../js/main/ajax/algoinfo.js' charset=utf-8></script>
+
+    <script type="text/javascript" src='../../js/main/tabRight/myPage.js' charset=utf-8></script>
+    <script type="text/javascript" src='../../js/main/tabRight/dashboardEvent.js' charset=utf-8></script>
+    <script type="text/javascript" src='../../js/main/tabRight/tabRightEvent.js' charset=utf-8></script>
+
+    <!-- layer-popup -->
+    <link rel="stylesheet" href="../../css/main/compare/compare.css">
+    <script type="text/javascript" src='../../js/main/ajax/compare.js' charset=utf-8></script>
+    <script type="text/javascript" src='../../js/main/compare/compareEvent.js' charset=utf-8></script>
+
+    <!-- notice -->
+    <link rel="stylesheet" href="../../css/main/popup/notice.css">
+    <script type="text/javascript" src='../../js/main/ajax/notice.js' charset=utf-8></script>
+    <script type="text/javascript " src='../../js/main/notice/MovePanel.js' charset=utf-8></script>
+    <script type="text/javascript" src='../../js/main/notice/noticeEvent.js' charset=utf-8></script>
+
+    <!-- report -->
+    <link rel="stylesheet" href="../../css/main/popup/report.css">
+    <script type="text/javascript" src='../../js/main/report/reportEvent.js'></script>
+
+    <!-- setting -->
+    <link rel="stylesheet" href="../../css/main/popup/option.css">
+    <script type="text/javascript" src='../../js/main/option/optionEvent.js' charset=utf-8></script>
+
+    <!-- tutorial -->
+    <script type="text/javascript" src='../../js/main/tutorial/tutorialEvent.js'></script>
+
+
+  </head>
+  <body>
+    <header class='main-header'>
+      <form id="connectForm">
+        <div class="user-information">
+          <img id='btn-notice' src='./images/icon/notice.png' onClick='notice_init()' alt='notice'>
+          <img id='btn-setting' style='display:none;' src='./images/icon/setting.png' onClick='setting_init()' alt='notice'>
+          <input class='user-display-name' type='text' value='[]' onClick='handleMyPageGet()' readonly>
+        </div>
+        <!-- 사용자 & 관리자 -->
+        <div class="user-bottons">
+          <input class='log-btn login' type='button' value='login'>
+          <input class='log-btn logout hidden' type='button' value='logout'>
+        </div>
+        <!-- 공지사항버튼 -->
+          <!-- 관리자 : 문제 등록 버튼 -->
+        <div class="admin-bottons hidden">
+          <input class='log-btn admin' type='button' value='admin'>
+        </div>
+      </form>
+    </header>
+    <section class="tab-menu-left">
+      <div class="left-title">
+        <ul>
+          <li class='tab-title left-title algo-list selected'>
+            <span>algo-list</span>
+          </li>
+          <li class='tab-title left-title my-algo-list hidden'>
+            <span>
+              <a>my-algo-list</a>
+            </span>
+          </li>
+          <li class='tab-title left-title selected-algo-name hidden'>
+            <span>
+              <a></a>
+              <button class='closeTabButton' type="button" value='.left-title.selected-algo-name'>X</button>
+            </span>
+          </li>
+          </li>
+          <li class='tab-title left-title empty hidden'>
+            <span>
+              <a>empty</a>
+              <button class='closeTabButton' type="button" value='.left-title.empty'>X</button>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="left-contents">
+        <!-- algorithm -->
+        <ul class="left-contents algo-list">
+
+        </ul>
+        <!-- elected-algo-name -->
+        <ul class="left-contents my-algo-list hidden">
+          <!-- right-conetns copy data -->
+        </ul>
+        <!-- editor -->
+        <ul class="left-contents selected-algo-name hidden">
+        </ul>
+        <!-- questions-list -->
+        <ul class="left-contents emtpy hidden">
+        </ul>
+      </div>
+    </section>
+    <section class="tab-menu-right">
+      <div class="right-title">
+        <ul>
+          <li class='tab-title right-title home selected'>
+            <span>
+              <a>home</a>
+            </span>
+          </li>
+          <li class='tab-title right-title questions-list hidden'>
+            <span>
+              <a>questions-list</a>
+              <button class='closeTabButton' type="button" value='.right-title.questions-list'>X</button>
+            </span>
+          </li>
+          <li class='tab-title right-title selected-algo-name hidden'>
+            <span>
+              <a>selected-algo-name</a>
+              <button class='closeTabButton' type="button" value='.right-title.selected-algo-name'>X</button>
+            </span>
+          </li>
+          <li class='tab-title right-title editor hidden'>
+            <span>
+              <a>editor</a>
+              <button class='closeTabButton' type="button" value='.right-title.editor'>X</button>
+            </span>
+          </li>
+          <li class='tab-title right-title mypage hidden'>
+            <span>
+              <a>mypage</a>
+              <button class='closeTabButton' type="button" value='.right-title.mypage'>X</button>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="right-contents">
+        <!-- home -->
+        <ul class="right-contents home">
+          <a onclick='tutorialStart()'>튜토리얼</a>
+        </ul>
+        <!-- mypage -->
+        <ul class="right-contents mypage hidden">
+          <section class='non-auth mypage-password'>
+            <form class="non-auth mypage-info-form">
+              <div class="info-row passwords">
+                <!-- 비밀번호 -->
+                <div class="info-row password">
+                  <div class="info-title password">
+                    <span>password</span>
+                  </div>
+                  <div class="non-auth info-contents password">
+                    <input type="password" name="non-auth-my-password">
+                    <span class='check-result password invalid'></span>
+                  </div>
+                </div>
+                <!-- 비밀번호확인 -->
+                <div class="info-row password-check">
+                  <div class="info-title password-check">
+                    <span>password-check</span>
+                  </div>
+                  <div class="non-auth info-contents password-check">
+                    <input type="password" name="non-auth-my-password-check">
+                    <span class='check-result password-check invalid'></span>
+                  </div>
+                </div>
+              </div>
+              <div class="info-row buttons">
+                <div class="info-title buttons">
+                  <span>buttons</span>
+                </div>
+                <div class="non-auth info-contents buttons">
+                  <!-- 비밀번호 확인 -->
+                  <input type="button" value="check" onClick='handleMyPasswordCheck()'>
+                  <!-- 취소 -->
+                  <input type="button" value="out" onClick=''>
+                </div>
+              </div>
+            </form>
+          </section>
+          <section class='auth mypage-detail hidden'>
+            <form class="auth mypage-info-form">
+              <!-- 이메일 -->
+              <div class="info-row email">
+                <div class="info-title email">
+                  <span>E-mail</span>
+                </div>
+                <div class="auth info-contents email">
+                  <input type="text" name="my-email" readonly>
+                </div>
+              </div>
+              <!-- 이름 -->
+              <div class="info-row name">
+                <div class="info-title name">
+                  <span>name</span>
+                </div>
+                <div class="auth info-contents name">
+                  <input type="text" name="my-name">
+                  <span class='check-result name invalid'></span>
+                </div>
+              </div>
+              <div class="info-row passwords">
+                <!-- 비밀번호 -->
+                <div class="info-row password">
+                  <div class="info-title password">
+                    <span>password</span>
+                  </div>
+                  <div class="auth info-contents password">
+                    <input type="password" name="my-password">
+                    <span class='check-result password invalid'></span>
+                  </div>
+                </div>
+                <!-- 비밀번호확인 -->
+                <div class="info-row password-check">
+                  <div class="info-title password-check">
+                    <span>password-check</span>
+                  </div>
+                  <div class="auth info-contents password-check">
+                    <input type="password" name="my-password-check">
+                    <span class='check-result password-check invalid'></span>
+                  </div>
+                </div>
+              </div>
+              <div class="info-row join-date">
+                <div class="info-title join-date">
+                  <span>join date</span>
+                </div>
+                <div class="auth info-contents joindate">
+                  <input type="text" name="joindate" readonly>
+                </div>
+              </div>
+              <div class="info-row buttons">
+                <div class="info-title buttons">
+                  <span>buttons</span>
+                </div>
+                <div class="auth info-contents buttons">
+                  <input type="button" value="update" onClick='handleMyPageUpdate();'>
+                  <!-- 회원탈퇴 -->
+                  <input type="button" value="out" onClick='handleMyPageDelete();'>
+                </div>
+              </div>
+            </form>
+          </section>
+        </ul>
+        <!-- elected-algo-name -->
+        <ul class="right-contents selected-algo-name hidden">
+          <!-- ajax : algorithm titles -->
+          <section class='algo-detail'>
+            <!-- fixed  -->
+            <header>
+              <ul class="question-simple-info">
+                <li>
+                  <!-- ajax data -->
+                  <p class='simple-info no'></p>
+                </li>
+                <li>
+                  <!-- ajax data -->
+                  <p class='simple-info subject'></p>
+                </li>
+                <li>
+                  <!-- ajax data -->
+                  <p class='simple-info author'></p>
+                </li>
+                <li>
+                  <!-- ajax data -->
+                  <p class='simple-info date'></p>
+                </li>
+                <li class='btn-singo'>
+                  <!-- ajax data -->
+                  <p class='simple-info singo'>
+    					       <img class="singoimg" src='/images/icon/singo.png' onClick='reportPopupInit()'>
+        				  </p>
+                </li>
+              </ul>
+            </header>
+            <!------------>
+            <!-- scroll  -->
+            <section class="scroll-contents">
+              <nav>
+                <ul class="dashboard">
+                  <li id='challenger-score'>
+                    <p class='dashboard-name'>도전자</p>
+                    <div class="dashboard-score">
+                      <!-- ajax data -->
+                      <a></a>
+                    </div>
+                  </li>
+                  <li id='perfect-score'>
+                    <p class='dashboard-name'>맞춘사람</p>
+                    <div class="dashboard-score">
+                      <!-- ajax data -->
+                      <a></a>
+                    </div>
+                  </li>
+                  <li id='persent-score'>
+                    <p class='dashboard-name'>정답률</p>
+                    <div class="dashboard-score">
+                      <!-- ajax data -->
+                      <a></a>
+                    </div>
+                  </li>
+                  <li id='lang-c-score'>
+                    <p class='dashboard-name'>C</p>
+                    <div class="dashboard-score">
+                      <!-- ajax data -->
+                      <a></a>
+                    </div>
+                  </li>
+                  <li id='lang-java-score'>
+                    <p class='dashboard-name'>JAVA</p>
+                    <div class="dashboard-score">
+                      <!-- ajax data -->
+                      <a></a>
+                    </div>
+                  </li>
+                  <li id='lang-python-score'>
+                    <p class='dashboard-name'>PYTHON</p>
+                    <div class="dashboard-score">
+                      <!-- ajax data -->
+                      <a></a>
+                    </div>
+                  </li>
+                </ul>
+              </nav>
+              <section class='slider-contents'>
+                <section class="question-info">
+                  <!-- 문제 -->
+                  <div class="question-info contents">
+                    <h3>CONTENTS</h3>
+                    <div class='contents-data'>
+                      <!-- ajax data -->
+                    </div>
+                  </div>
+                  <!-- input 정보 -->
+                  <div class="question-info input-info">
+                    <!-- ajax data -->
+                    <h3>INPUT INFO</h3>
+                    <div class='input-info-data'>
+                      <!-- ajax data -->
+                    </div>
+                  </div>
+                  <!-- output 정보 -->
+                  <div class="question-info output-info">
+                    <!-- ajax data -->
+                    <h3>OUTPUT INFO</h3>
+                    <div class='output-info-data'>
+                      <!-- ajax data -->
+                    </div>
+                  </div>
+
+                  <!-- 테스트케이스 -->
+                  <div class="question-info testcase">
+
+                  </div>
+                </section>
+                <section class='dashboard-info'>
+                  <!-- 문제 풀이 현황 -->
+                  <div class="table-border">
+                    <table class='question-detail-dashboard'>
+                      <thead>
+                        <th class='no'>no</th>
+                        <th class='username'>name</th>
+                        <th class='language'>language</th>
+                        <th class='score'>score</th>
+                        <th class='compare hidden'>compare</th>
+                        <th class='date'>date</th>
+                      </thead>
+                      <tbody class='detail-dashboard ajax-data'>
+                        <!-- ajax data -->
+                      </tbody>
+                    </table>
+                    <nav class='dashboard-remote'>
+                      <a onClick='closeDashboardDetail()'>뒤로가기</a>
+                      <div class="buttons">
+                      </div>
+                    </nav>
+                  </div>
+                </section>
+              </section>
+            </section>
+            <!------------>
+            <!-- fixed  -->
+            <footer class='algo-solve hidden'>
+              <input class='btn-algo-solve' type="button" value="SOLVE">
+            </footer>
+          </section>
+        </ul>
+        <!-- editor -->
+        <ul class="right-contents editor hidden">
+          <div class="editor-language">
+            <select class="languageSelector" name="languageSelector">
+              <option value="python" selected>python</option>
+              <option value="java">JAVA</option>
+              <option value="c">C</option>
+            </select>
+          </div>
+          <div class="editor-block">
+            <textarea id="editor" name="editor"></textarea>
+          </div>
+          <div class="editor-test">
+            <dl class="editor-options">
+              <!-- title -->
+              <div class="option-title">
+                <dt class="option-title testcase selected">TESTCASE</dt>
+                <dt class="option-title submit">SUBMIT</dt>
+                <dt class="option-title result">RESULT</dt>
+              </div>
+              <!-- item -->
+              <div class="option-item">
+                <dd class="option-item testcase">
+                  <div class="scroll-block">
+                    <div class="multi-testcase">
+                      <button class='test-event all' type='button' onClick='all_test()'>all</button>
+                    </div>
+                    <div class="single-testcase">
+
+                    </div>
+                    <div class="testcase-result">
+
+                    </div>
+                  </div>
+                </dd>
+                <dd class="option-item submit hidden">
+                  <div class="scroll-block">
+
+                  </div>
+                </dd>
+                <dd class="option-item result hidden">
+                  <div class="scroll-block">
+
+                  </div>
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </ul>
+        <!-- questions-list -->
+        <ul class="right-contents questions-list hidden">
+
+        </ul>
+      </div>
+    </section>
+
+    <!-- 공지사항 -->
+    <section class='notice-board hidden'>
+      <div class="notice-board-background" onClick='notice_cancle()'></div>
+      <div class="notice-board-top-blank"></div>
+      <div class="notice-board-container">
+        <header class='notice-topic'>
+          <div class="absolute-containner">
+            <div class="topic-container">
+              <!-- ajax-data -->
+            </div>
+          </div>
+        </header>
+        <section class='notice-list'>
+          <table class='notice-detail'>
+            <thead class='header'>
+              <tr>
+                <th calss='notice-no'>no</th>
+                <th class='notice-subject'>subject</th>
+                <th class='notice-author'>author</th>
+                <th class='notice-deate'>date</th>
+              </tr>
+            </thead>
+            <tbody class='list'>
+              <!-- ajax-data -->
+            </tbody>
+          </table>
+          <nav class='notice-list-controller'>
+            <!-- ajax-data -->
+          </nav>
+        </section>
+        <section class='notice-viewer hidden'>
+          <!-- ajax-data-update -->
+          <header class='notice-info-title'>
+            <ul>
+              <li class='notice-info notice-no'></li>
+              <li class='notice-info notice-subject'></li>
+              <li class='notice-info notice-author'></li>
+              <li class='notice-info notice-date'></li>
+            </ul>
+          </header>
+          <!-- ajax-data-update -->
+          <section class='notice-info-contents'>
+            <textarea class='notice-contents' readonly></textarea>
+          </section>
+          <footer class='notice-viewer-controller'>
+            <button type="button" name="back" onClick='notice_back()'>뒤로가기</button>
+          </footer>
+        </section>
+      </div>
+    </section>
+
+    <!-- POPUP -->
+    <!-- 환경설정 -->
+    <section class='option-setting hidden'>
+      <div class="option-setting-background" onClick='settingCancle()'></div>
+      <div class="option-setting-top-blank"></div>
+      <div class="option-setting-container">
+        <header class='option-title'>
+          <h3>Setting</h3>
+        </header>
+        <section class='option-contents'>
+          <section class='option-detail'>
+            <form id="setting-form">
+              <div class="option-target editor">
+                <label for="editor">Editor</label>
+                <div class="editor-setting panel">
+                  <!-- 테마설정 -->
+                  <div class="editor-theme">
+                    <label for="editor-theme-selecter">theme</label>
+                    <select class="editor-theme-selecter" name='theme'>
+                      <option value="midnight">midnight</option>
+                      <option value="dracula">dracula</option>
+                    </select>
+                  </div>
+                  <!-- 글씨체 -->
+                  <div class="editor-fontfamily">
+                    <label for="editor-fontfamily-selecter">font</label>
+                    <select class="editor-fontfamily-selecter" name='font'>
+                      <option value="arial" selected>arial</option>
+                      <option value="hanna">hanna</option>
+                    </select>
+                  </div>
+                  <!-- 언어설정 -->
+                  <div class="editor-language">
+                    <label for="editor-language-selecter">language</label>
+                    <select class="editor-language-selecter" name='language'>
+                      <option value="python" selected>python</option>
+                      <option value="c">c</option>
+                      <option value="java">java</option>
+                    </select>
+                  </div>
+                  <!-- 글쓰크기 -->
+                  <div class="editor-fontsize">
+                    <label for="editor-fontsize-selecter">font-size</label>
+                    <select class="editor-fontsize-selecter" name='fontsize'>
+                      <option value="15px" selected>15px</option>
+                      <option value="18px">18px</option>
+                      <option value="20px">20px</option>
+                      <option value="22px">22px</option>
+                      <option value="24px">24px</option>
+                      <option value="26px">26px</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <!-- 기본설정 -->
+
+            </form>
+          </section>
+          <nav class='option-contents-controller'>
+            <button type="button" name="cancel" onClick='settingCancle()'>cancel</button>
+            <button type="button" name="save" onClick='settingSave()'>save</button>
+          </nav>
+        </section>
+      </div>
+    </section>
+
+    <!-- 신고 팝업  -->
+    <section class='report-popup hidden'>
+      <div class="report-popup-background" onClick='reportCancle()'></div>
+      <div class="report-popup-top-blank"></div>
+      <div class="report-popup-container">
+        <header class='report-title'>
+          <h3>report</h3>
+        </header>
+        <section class='report-contents'>
+          <section class='report-detail'>
+            <form id="report-form">
+              <input class='hidden-info report' type="text" name="qNo" value="">
+              <input class='hidden-info report' type="text" name="mNo" value="">
+              <div class="report-resource type">
+                <h3>report type</h3>
+                <select class="report-type" name="type">
+                  <option value="1">문제에 대한 오류가 있습니다.</option>
+                  <option value="2">정답에 대한 오류가 있습니다.</option>
+                  <option value="3">테스트케이스에 대한 오류가 있습니다.</option>
+                  <option value="4">기타</option>
+                </select>
+                <!-- <input style='display:none;' type="text" name="reportTypeTemp" placeholder="신고 주제를 작성해주세요"> -->
+              </div>
+              <div class="report-resource content">
+                <h3>report content</h3>
+                <textarea name="detail"></textarea>
+              </div>
+            </form>
+          </section>
+          <nav class='report-contents-controller'>
+            <button type="button" name="cancel" onClick='reportCancle()'>cancel</button>
+            <button type="button" name="save" onClick='reportSubmit()'>submit</button>
+          </nav>
+        </section>
+      </div>
+    </section>
+
+
+    <!-- 비교하기 팝업 -->
+    <!-- selected-dashboard-data -->
+    <section class='popup-source-code-detail'>
+      <div class="layer-popup-bg"></div>
+      <div class="layer-popup-contents">
+        <!-- code-info -->
+        <header class='layer-popup'>
+          <ul>
+            <li class='source-code-info no'>10</li>
+            <li class='source-code-info name'>admin</li>
+            <li class='source-code-info language'>python</li>
+            <li class='source-code-info score'>100%</li>
+            <li class='source-code-info date'>2017-07-28</li>
+          </ul>
+        </header>
+        <!-- source-code -->
+        <section class='layer-popup'>
+          <div class="absolute-containner">
+            <section class='layer-popup source-code-area left'>
+              <!-- my-source-code -->
+              <select class="source-code-selector" name="my-codes">
+              </select>
+              <textarea class='source-code-text my-source' name="my-source" readonly>my-code</textarea>
+            </section>
+            <section class='layer-popup source-code-area right'>
+              <!-- other-source-code -->
+              <textarea class='source-code-text other-source' name="other-source" readonly>other code</textarea>
+            </section>
+          </div>
+        </section>
+        <!-- buttons -->
+        <footer class='layer-popup'>
+          <div class="buttons">
+            <input class='layer-popup-btn compare' type="button" value="compare">
+            <span class='layer-popup-str results'></span>
+            <input class='layer-popup-btn close' type="button" value="close">
+          </div>
+        </footer>
+      </div>
+    <!------------>
+    </section>
+    <section class='tutorial-popup hidden'>
+      <section class='tutorial-clicker-panel'>
+        <!-- 여백을 border로 설정하기 때문에 태그로 감싸줘야됨 -->
+        <div id="point-clicker"></div>
+      </section>
+      <!-- events -->
+      <img id='mouse-pointer' src="../../images/icon/mouse_pointer.png" alt="mouse">
+      <button id='tutorial-button-skip' type="button" onClick='tutorialSkip()'>SKIP</button>
+    </section>
+  </body>
+</html>

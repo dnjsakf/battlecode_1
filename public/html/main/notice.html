@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="../css/main/notice.css">
+    <script type="text/javascript" src='../js/main/ajax/notice.js'></script>
+    <script type="text/javascript" src='../js/main/notice/MovePanel.js'></script>
+    <script type="text/javascript" src='../js/main/notice/noticeEvent.js'></script>
+
+  </head>
+  <body>
+    <button id='btn-notice' type="button" onClick='notice_init()'>공지사항</button>
+    <section class='notice-board hidden'>
+      <div class="notice-board-background"></div>
+      <div class="notice-board-top-blank"></div>
+      <div class="notice-board-container">
+        <header class='notice-topic'>
+          <div class="absolute-containner">
+            <div class="topic-container">
+              <!-- ajax-data -->
+            </div>
+          </div>
+        </header>
+        <section class='notice-list'>
+          <table class='notice-detail'>
+            <thead class='header'>
+              <tr>
+                <th calss='notice-no'>no</th>
+                <th class='notice-subject'>subject</th>
+                <th class='notice-author'>author</th>
+                <th class='notice-deate'>date</th>
+              </tr>
+            </thead>
+            <tbody class='list'>
+              <!-- ajax-data -->
+            </tbody>
+          </table>
+          <nav class='notice-list-controller'>
+            <!-- ajax-data -->
+          </nav>
+        </section>
+        <section class='notice-viewer hidden'>
+          <!-- ajax-data-update -->
+          <header class='notice-info-title'>
+            <ul>
+              <li class='notice-info notice-no'></li>
+              <li class='notice-info notice-subject'></li>
+              <li class='notice-info notice-author'></li>
+              <li class='notice-info notice-date'></li>
+            </ul>
+          </header>
+          <!-- ajax-data-update -->
+          <section class='notice-info-contents'>
+            <textarea class='notice-contents' readonly></textarea>
+          </section>
+          <footer class='notice-viewer-controller'>
+            <button type="button" name="back" onClick='notice_back()'>뒤로가기</button>
+          </footer>
+        </section>
+      </div>
+    </section>
+  </body>
+</html>

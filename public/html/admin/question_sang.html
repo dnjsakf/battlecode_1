@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="관리자 문제 관리 페이지">
+    <meta name="viewport" content="width=device-width, user-scalable=1.0">
+
+    <title>관리자페이지 문제관리</title>
+
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+    <!-- css -->
+    <link rel="stylesheet" href="../css/admin/question.css">
+
+    <!-- js -->
+    <script type="text/javascript" src="../js/admin/question.js"></script>
+
+</head>
+<body>
+<nav class='management-list'>
+    <ul>
+        <li>
+            <span><button class="button queslist">문제리스트 </button></span>
+        </li>
+        <li>
+            <span><button class="button quesinsert">문제등록 </button></span>
+        </li>
+        <li>
+            <span><button class="button memberadmin">회원관리 </button></span>
+        </li>
+    </ul>
+</nav>
+
+
+
+<section class='management-viewer'>
+    <header class='infomation'>
+
+    </header>
+    <section class='contents'>
+
+        <div class="questionform">
+            <div>
+                <label for="question">문제제목</label>
+            </div>
+            <div>
+                <input type="text" id="question" name="question" placeholder="문제제목을 입력해주세요.">
+            </div>
+            <div>
+                <label for="author">작성자</label>
+            </div>
+            <div>
+                <input type="text" id="author" name="author" placeholder="작성자를 입력해주세요">
+            </div>
+            <div>
+                <label for="questionstory">문제내용</label>
+                <div>
+                    <textarea class="quescontent" id="questionstory" name="questionstory"  placeholder="문제내용을입력해주세요"></textarea>
+                </div>
+            </div>
+
+            <div>
+                <label for="varinfo">varinfo</label>
+                <div>
+                    <textarea class="varrarea" id="varinfo" name="varinfo" placeholder="varinfo를입력해주세요"></textarea>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 테스트케이스 -->
+        <div class="testcase-title">
+            <strong>TESTCASE</strong>
+            <button onClick='addCase()'>+</button>
+        </div>
+        <div class="testcase">
+            <!-- 반복 -->
+            <div class="case-row" value=1>
+                <div class="case-title">
+                    <strong>CASE-1</strong>
+                    <button onClick='removeCase(1)'>x</button>
+                </div>
+                <div class="case-data">
+                    <!-- inputs -->
+                    <div class="input">
+                        <strong>INPUT</strong>
+                        <textarea name="case"></textarea>
+                    </div>
+                    <!-- outputs -->
+                    <div class="output">
+                        <strong>OUTPUT</strong>
+                        <textarea name="case"></textarea>
+                    </div>
+                    <div style='clear:both'></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="controller">
+        <div>
+            <input class="button" type="button" value="저장하기">
+            <input class="button buttoncancle" type="button" value="취소하기">
+        </div>
+    </footer>
+</section>
+</body>
+</html>

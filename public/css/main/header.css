@@ -1,0 +1,44 @@
+header.main-header{
+  background: rgb(41, 41, 41);
+}
+header.main-header *{
+  color: white;
+}
+form#connectForm{
+  position: absolute;
+  right:0;
+  width: 250px;
+}
+div.user-information > input.user-display-name{
+  float:left;
+  width: 140px;
+  height: 25px;
+  border: 0;
+  outline: 0;
+  text-align: center;
+  background: transparent;
+}
+div.user-information > img{
+  float:left;
+  height: 25px;
+  width: auto;
+}
+div.user-information > img:hover{
+  cursor: pointer;
+}
+
+
+header.main-header input{
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+}
+header.main-header input[type=button]{
+  width:50px;
+}
+header.main-header input:hover{
+  cursor: pointer;
+  background: rgb(135, 135, 135);
+}

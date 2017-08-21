@@ -1,0 +1,29 @@
+*{
+  box-sizing: border-box;
+}
+h1.log-title{
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+div.logBlock{
+  position: relative;
+  top: 100px;
+  border: 1px solid;
+  width: 300px;
+  height: auto;
+  padding: 20px;
+  margin: 0 auto;
+}
+form#logForm input.form-control,
+form#logForm input{
+  width: 100%;
+}
+.hidden{
+  display: none;
+}
+
+input.matched,
+input.regmode.valid{
+  color:rgb(13, 255, 0);
+}

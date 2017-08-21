@@ -1,0 +1,327 @@
+*{
+  -ms-overflow-style: none;
+}
+::-webkit-scrollbar{
+  display: none;
+}
+
+
+ul.right-contents.selected-algo-name{
+  width: 100%;
+  height: 100%;
+  background: rgb(255, 255, 255);
+}
+section.algo-detail{
+  width: inherit;
+  height: 100%;
+}
+section.algo-detail p{
+  padding: 0;
+  margin: 0;
+}
+
+/********************************/
+/************ HEADER ************/
+/********************************/
+/* no | subject | author | date */
+/********************************/
+section.algo-detail > header{
+  z-index:100;
+  position: relative;
+  width: 100%;
+  height: 50px;
+  background: rgb(255, 255, 255);
+}
+ul.question-simple-info{
+  list-style-type: none;
+  height: 50px;
+  margin: 0;
+  padding: 0;
+  box-shadow: 0 2px rgb(166, 166, 166);
+}
+ul.question-simple-info > li{
+  float: left;
+  position: relative;
+  text-align: center;
+  font-size: 20px;
+  height: 100%;
+  padding: 10px 0 10px 0;
+  background: rgb(255, 255, 255);
+}
+ul.question-simple-info > li:nth-child(1){
+  width: 10%;
+}
+ul.question-simple-info > li:nth-child(2){
+  width: 40%;
+}
+ul.question-simple-info > li:nth-child(3){
+  width: 20%;
+}
+ul.question-simple-info > li:nth-child(4){
+  width: 25%;
+}
+ul.question-simple-info > li:nth-child(5){
+  width: 5%;
+}
+ul.question-simple-info > li:nth-child(5) > p{
+  width: 100%;
+  height: 100%;
+}
+ul.question-simple-info > li:nth-child(5) > p > img{
+  width: auto;
+  height: 100%;
+}
+ul.question-simple-info > li:nth-child(5) > p > img:hover{
+  width: auto;
+  height: 100%;
+  cursor: pointer;
+}
+
+p.simple-info{
+  margin: 10px 0 10px 0;
+}
+
+
+/********************************/
+/********* DASHBOARD ************/
+/********************************/
+section.scroll-contents{
+  height: calc(100% - 50px);
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+section.scroll-contents.connected{
+  height: calc(100% - 100px);
+}
+
+/********************************/
+/******** 대쉬보드 PANEL *********/
+/********************************/
+section.scroll-contents > nav{
+  width: 100%;
+  height: 120px;
+  padding: 0 15px 0 15px;
+  overflow-x: scroll;
+}
+section.scroll-contents > nav > ul.dashboard{
+  list-style-type: none;
+  min-width: 600px;
+  max-width: 1020px;
+  padding: 0;
+  margin: 0 auto;
+  text-align: center;
+}
+section.scroll-contents > nav > ul.dashboard > li{
+  float: left;
+  width: calc(100% / 6);
+  height: 120px;
+  padding: 10px;
+  border-right: 0;
+  background: rgb(255, 255, 255);
+  border-right: 1px solid;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+}
+section.scroll-contents > nav > ul.dashboard > li:first-child{
+  border-left: 1px solid;
+}
+section.scroll-contents > nav > ul.dashboard > li:nth-child(2n+1){
+  background: rgb(180, 180, 180);
+}
+
+section.scroll-contents > nav > ul.dashboard > li:hover{
+  cursor: pointer;
+  background: rgb(255, 255, 255);
+  box-shadow: inset 0px 0px 5px 1px rgb(113, 113, 113);
+}
+div.dashboard-score{
+  border: 1px solid rgba(107, 152, 3, 0.28);
+  border-radius: 2em;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+  padding: 8px 0 10px 0;
+}
+div.dashboard-score:hover{
+  border-color: transparent;
+  box-shadow: inset 0px 0px 2px 1px rgb(150, 255, 230);
+}
+
+
+
+/********************************/
+/****** 문제정보 | 대쉬보드 ******/
+/********************************/
+section.slider-contents{
+  position:relative;
+  height: calc(100% - 120px);
+  width: 200%;
+}
+section.slider-contents > section{
+  padding: 10px 10px 0 10px;
+}
+section.slider-contents > section.question-info{
+  float: left;
+  width: 50%;
+}
+section.slider-contents > section.dashboard-info{
+  float: left;
+  width: 50%;
+}
+
+
+
+/********************************/
+/******* 문제정보 - 문제내용 *****/
+/*******************************/
+section.question-info img{
+  max-width: 100%;
+  height: 100%;
+}
+section.question-info ul{
+  list-style-type: none;
+}
+div.question-info{
+  border: 1px solid;
+  margin: 5px auto;
+  margin-top: 0px;
+  padding: 5px;
+  max-width: 1020px;
+}
+div.question-info > div > p,
+div.question-info > div > pre,
+div.question-info > div > ul,
+div.question-info > h3{
+  margin: 0;
+  width:100%;
+  padding: 5px 10px 5px 10px;
+}
+
+
+
+/********************************/
+/*** 문제정보 - 테스트케이스 *****/
+/*******************************/
+div.question-info.testcase{
+  overflow: auto;
+}
+div.testcase > strong{
+  width: 100%;
+}
+div.case-row{
+  width: 100%;
+  border-bottom-style: dotted;
+  border-bottom-width: 1px;
+}
+div.case-row > div.title{
+  background: rgb(219, 222, 202);
+  text-align: center;
+}
+div.testcase.input,
+div.testcase.output{
+  float: left;
+  width: 50%;
+}
+div.case-row table{
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+td.no{
+  width: 10%;
+}
+
+
+div.absolute-container{
+  width: 100%;
+  height: 100%;
+}
+/********************************/
+/******* 대쉬보드 테이블 *********/
+/*******************************/
+section.slider-contents > section.dashboard-info > div.table-border{
+  position:relative;
+  width: 100%;
+  max-width: 1020px;
+  height: 360px;
+  margin: 0 auto;
+  border: 1px solid;
+}
+
+section.slider-contents > section.dashboard-info > div >
+table.question-detail-dashboard{
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+table.question-detail-dashboard > thead{
+  border-bottom-style: dashed;
+  border-bottom-width: 1px;
+}
+table.question-detail-dashboard .no{
+  width: 20%;
+}
+table.question-detail-dashboard .username{
+  width: 20%;
+}
+table.question-detail-dashboard .language{
+  width: 20%;
+}
+table.question-detail-dashboard .score{
+
+}
+table.question-detail-dashboard .date {
+  width: 20%;
+}
+table.question-detail-dashboard > tbody tr:hover{
+  background: rgb(236, 245, 185);
+  cursor: pointer;
+}
+
+table.question-detail-dashboard td {
+  height: 30px;
+}
+
+
+
+/********************************/
+/******* 대쉬보드 페이지버튼 *****/
+/*******************************/
+nav.dashboard-remote{
+  position:absolute;
+  bottom:0;
+  width: 100%;
+  height: 35px;
+  max-width: inherit;
+  text-align: center;
+  border-top: 1px dotted;
+  padding: 5px;
+}
+nav.dashboard-remote > a{
+  position: absolute;
+  left: 0;
+  height: inherit;
+}
+nav.dashboard-remote > div.buttons{
+  width: 100px;
+  margin: 0 auto;
+  height: inherit;
+}
+
+
+
+/********************************/
+/************ SOLVE ************/
+/*******************************/
+footer.algo-solve{
+  width: 100%;
+  height: 50px;
+  background: rgb(255, 255, 255)
+}
+footer.algo-solve > input{
+  width: 100%;
+  height: 100%;
+  background: rgb(255, 255, 255);
+}

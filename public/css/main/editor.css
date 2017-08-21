@@ -1,0 +1,123 @@
+*{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+html{
+  height: 100%;
+}
+body{
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+.CodeMirror{
+  height: 100%;
+  width: 100%;
+}
+.hidden{
+  display: none;
+}
+::-webkit-scrollbar{
+  /*display: none;*/
+}
+/* editor-detail */
+ul.right-contents.editor > div.editor-language{
+  background: rgb(41, 41, 41);
+  height: 25px;
+}
+select.languageSelector{
+  color: rgb(255, 255, 255);
+  background: rgb(66, 66, 66);
+}
+select.languageSelector:focus > option:checked{
+  color: rgb(255, 255, 255);
+  background: rgb(108, 108, 108);
+}
+select.languageSelector:focus > option:not(:checked){
+  color: rgb(255, 255, 255);
+  background: rgb(66, 66, 66);
+}
+select.languageSelector:active > option:hover{
+  box-shadow: 4px 5px rgb(255, 0, 0);
+}
+
+
+ul.right-contents.editor > div.editor-block{
+  height: calc(60% - 25px);
+}
+ul.right-contents.editor > div.editor-test{
+  height: 40%;
+  padding: 5px;
+  color: rgb(255, 255, 255);
+  background: rgb(41, 41, 41);
+}
+
+/* editor-textarea */
+div.editor-block > textarea#editor{
+  height: 100%;
+}
+
+/* editor-options */
+div.editor-test > dl{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* editor-options */
+dl.editor-options{
+  height: 100%;
+}
+dl.editor-options > div.option-title{
+  width: 100%;
+  height: 20px;
+}
+dl.editor-options > div.option-item{
+  width: 100%;
+  height: -webkit-calc(100% - 20px);
+}
+
+
+/* editor-options-title */
+dt.option-title{
+  float: left;
+  padding: 0 10px 0 10px;
+  border-top-right-radius: 10px;
+  margin-right: 5px;
+  cursor: pointer;
+  box-shadow: inset 2px 2px rgb(125, 125, 125);
+  color: rgb(131, 131, 131);
+  background: rgb(41, 41, 41);
+}
+dt.option-title.selected{
+  color: rgb(255, 255, 255);
+  box-shadow: inset 2px 2px rgb(177, 178, 179);
+  background: rgb(108, 108, 108);
+}
+dt.option-title:hover{
+  color: rgb(0, 0, 0);
+  background: rgb(207, 207, 207);
+}
+/* editor-options-item */
+dl.editor-options > div.option-item > dd{
+  clear: both;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background: rgb(108, 108, 108);
+}
+/* editor-options-item-testcase */
+dd.option-item.testcase{
+  padding: 10px;
+}
+dd.option-item.testcase > div.scroll-block{
+  height: 100%;
+  border: 1px solid;
+  overflow-y: scroll
+}
+div.testcase-result{
+  width: 100%;
+  height: calc(100% - 30px);
+}

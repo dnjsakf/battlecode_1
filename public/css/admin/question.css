@@ -1,0 +1,111 @@
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+html, body{
+  width: 100%;
+  height: 100%;
+}
+
+nav.management-list{
+  z-index: 10;
+  position: absolute;
+  width: 300px;
+  height: 100%;
+  background: rgb(164, 215, 133);
+}
+
+
+nav.management-list > ul {
+  padding-left: 20px;
+}
+nav.management-list > ul > li:hover {
+  cursor: pointer;
+  background: rgb(116, 228, 146);
+}
+
+
+section.management-viewer{
+  z-index: 1;
+  position:absolute;
+  width: 100%;
+  height: 100%;
+  padding-left: 300px;
+  background: rgb(171, 222, 213);
+}
+header.infomation{
+  width: 100%;
+  height: 50px;
+}
+section.contents{
+  width: 100%;
+  height: calc(100% - (50px * 2));
+}
+footer.controller{
+  width: 100%;
+  height: 50px;
+}
+
+
+section.contents input[type=text] {
+  border: none;
+  outline: none;
+  height: 100%;
+}
+section.contents textarea {
+  border: none;
+  outline: none;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 100px;
+  max-height: 100px;
+}
+section.contents > div.data-row{
+  clear: both;
+  width: 100%;
+}
+section.contents > div.data-row > div.title{
+  float:left;
+  width: 100px;
+  height: 100%;
+  padding: 10px;
+  text-align: center;
+}
+section.contents > div.data-row > div.data{
+  float:left;
+  width: calc(100% - 100px);
+  height: 100%;
+  padding: 10px;
+}
+
+
+div.testcase{
+  height: 400px;
+  overflow-y: scroll;
+}
+div.testcase-title{
+  text-align:center;
+}
+div.case-row:nth-child(2n-1){
+  background: rgb(197, 247, 203);
+}
+div.case-row:nth-child(2n){
+  background: rgb(82, 32, 14);
+}
+div.case-row > div.case-title{
+  text-align: center;
+}
+div.case-data > div.input{
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+div.case-data > div.output{
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+div.clear{
+  clear:both;
+}

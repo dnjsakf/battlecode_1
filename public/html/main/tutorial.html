@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js" charset=utf-8></script>
+    <style media="screen">
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+    html, body{
+      width: 100%;
+      height: 100%;
+    }
+    body > img{
+      height: 100%;
+      width: 100%;
+    }
+
+    section.tutorial-popup{
+      z-index: 2000;
+      position:absolute;
+      top:0;
+      left:0;
+      width: 100%;
+      height: 100%;
+    }
+
+    section.tutorial{
+      z-index: 2001;
+      position:absolute;
+      top:0;
+      left:0;
+      width: 100%;
+      height: 100%;
+
+      border-color: rgba(0, 0, 0, 0.67);
+      border-style: solid;
+
+      border-left-width: 0px;
+      border-right-width: 1000px;
+      border-top-width: 300px;
+      border-bottom-width: 300px;
+    }
+
+    div.point-clicker{
+      border: 2px solid rgb(0, 255, 41);
+      width: 100%;
+      height: 100%;
+    }
+
+
+    img#mouse-pointer{
+      z-index:1;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+
+      width: 25px;
+      height: 35px;
+    }
+    button#tutorial-button-skip{
+      position:absolute;
+      bottom: 10px;
+      right: 10px;
+
+      width: 100px;
+      height: 50px;
+
+      font-size: 30px;
+
+      outline: none;
+      border: none;
+
+      color: white;
+      background: transparent;
+    }
+
+    .hidden{
+      display:none;
+    }
+    </style>
+  </head>
+  <body>
+    <img src="../images/background/scene_1.png" alt="">
+    <section class='tutorial-popup'>
+      <section class='tutorial'>
+        <div class="point-clicker" onClick='tutorialClick()'></div>
+        <img id='mouse-pointer' src="../images/icon/mouse_pointer.png" alt="mouse">
+        <button id='tutorial-button-skip' type="button" onClick='tutorialSkip()'>SKIP</button>
+      </section>
+    </section>
+    <script type="text/javascript">
+      $(function(){
+        let $cursor = $('img#mouse-pointer'),
+            $clicker = $('div.point-clicker');
+            tutorialEvent = new MouseMove();
+
+        tutorialStart = function(){
+          let $tutorialProcess = {
+            0 : $('li.left-title').first(),
+            1 : $('li.algorithm.59'),         // <- 이게 동적으로 생성되서 타이밍잘 맞춰야됨
+            2 : $('input.btn-algo-solve'),
+            3 : $('div.CodeMirror'),
+            4 : $('button.test-event.all'),
+          };
+          $('.tutorial-popup').removeClass('hidden');
+          tutorialEvent.init($cursor, $clicker, $tutorialProcess, main_editor);
+          tutorialEvent.start();
+        };
+        tutorialSkip = function(){
+          tutorialEvent.stop();
+          $('.tutorial-popup').addClass('hidden');
+        };
+        tutorialClick = function(){
+          tutorialEvent.clicked();
+        }
+      })
+    </script>
+  </body>
+</html>

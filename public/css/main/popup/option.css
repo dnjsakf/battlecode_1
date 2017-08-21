@@ -1,0 +1,104 @@
+/* general */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+html, body{
+  width: 100%;
+  height: 100%;
+}
+.hidden{
+  display:none;
+}
+div.absolute-containner{
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+}
+
+
+/* main-block */
+section.option-setting{
+  z-index:101;
+  position:absolute;
+  opacity: 0;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  padding-left: calc(50% - 300px);
+}
+
+
+
+/* size container */
+div.option-setting-background{
+  position:absolute;
+  left:0;
+  right:0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.53);
+}
+div.option-setting-top-blank{
+  width: 0;
+  height: calc(50% - 225px);
+}
+div.option-setting-container{
+  position:relative;
+  width: 600px;
+  height: 450px;
+}
+
+
+header.option-title{
+  width: inherit;
+  height: 50px;
+  padding: 10px;
+  background: rgb(236, 250, 226);
+}
+section.option-contents{
+  width: inherit;
+  height: calc(100% - 50px);
+  padding: 10px;
+  background: rgb(210, 225, 226);
+}
+section.option-contents > section.option-detail{
+  width: 100%;
+  border-top: 1px solid;
+}
+section.option-detail > div.option-target{
+}
+div.option-target > div.panel{
+  border: 1px dotted;
+  font-size: 0;
+}
+div.option-target > div.panel > div{
+  display: inline-block;
+  padding: 10px;
+  width: 50%;
+  height: 40px;
+  font-size: 0;
+}
+div.option-target > div.panel > div > label{
+  display:inline-block;
+  width: 100px;
+  font-size: 15px;
+  text-align: center;
+}
+div.option-target > div.panel > div > select{
+  width: 100px;
+  border: 0;
+  outline: none;
+  font-size: 15px;
+}
+
+section.option-contents > nav.option-contents-controller{
+  position: absolute;
+  bottom: 10px;
+  border-top: 1px solid;
+  text-align: center;
+  width: calc(100% - 20px);
+  height: 25px;
+}

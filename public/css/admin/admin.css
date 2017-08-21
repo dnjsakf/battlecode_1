@@ -1,0 +1,112 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html, body {
+  width: 100%;
+  height: 100%;
+}
+::-webkit-scrollbar{
+  display: none;
+}
+nav.main-nav{
+  z-index: 2;
+  position: absolute;
+
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+
+  width: 300px;
+  height: 100%;
+
+  background: rgb(0, 0, 0);
+}
+
+section.main-section{
+  z-index: 1;
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  padding-left: 300px;
+
+  background: rgb(210, 252, 208);
+}
+
+div.manage-list{
+  color: white;
+}
+div.manage-list > input:checked + ul {
+  display:block;
+  animation-name: slideIn;
+  animation-duration: 0.5s;
+}
+@keyframes slideIn {
+  from {
+    margin-left: -100%;
+  }
+  to {
+    margin-left: 0%;
+  }
+}
+div.manage-list > label{
+  display: block;
+  padding: 10px;
+}
+div.manage-list > label:hover{
+  color: rgb(0, 0, 0);
+  background: rgb(0, 255, 41);
+  cursor: pointer;
+}
+div.manage-list > input[type="radio"] {
+  display: none;
+}
+div.manage-list > ul{
+  display: none;
+  list-style: none;
+}
+div.manage-list > ul > li{
+  padding-left: 20px;
+}
+
+
+button.manage-list-button{
+  overflow: hidden;
+
+  width: 200px;
+
+  margin: 4px 4px;
+  padding: 15px 20px;
+
+  outline: none;
+  border: none;
+
+  font-size: 16px;
+  text-align: center;
+
+  cursor: pointer;
+
+  color: white;
+}
+button.manage-list-button.select{
+   background-color: #ff0f91;
+}
+button.manage-list-button.insert{
+   background-color: #ff2340;
+}
+button.manage-list-button.delete{
+   background-color: #646dff;
+}
+button.manage-list-button.update{
+  background-color: #4caf50;
+}
+
+button.manage-list-button:active{
+  background: rgb(0, 70, 39);
+}
+
+.hidden {
+  display: none;
+}
