@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="../../css/admin/admin.css">
+    <script type="text/javascript" src="../../js/admin/ajax/ajax_member.js"></script>
+    <script type="text/javascript" src="../../js/admin/adminEvent.js"></script>
+    <title>관리자페이지</title>
+  </head>
+  <body>
+    <nav class='main-nav'>
+      <!-- 회원 관리 -->
+      <div class="manage-list member">
+        <label class='manage-list-title member' for="manage-list-member">회원 관리</label>
+        <input id='manage-list-member' type="radio" name="manage-list">
+        <ul>
+          <li>
+              <button class="manage-list-button member-button select" onClick='getManageSelectData("member", 1)'>회원 목록</button>
+          </li>
+          <li>
+              <button class="manage-list-button member-button insert">회원 등록</button>
+          </li>
+          <li>
+              <button class="manage-list-button member-button update">회원 수정</button>
+          </li>
+          <li>
+              <button class="manage-list-button member-button delete">회원 삭제</button>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 문제 관리 -->
+      <div class="manage-list questions">
+        <label class='manage-list-title questions' for="manage-list-questions">문제 관리</label>
+        <input id='manage-list-questions' type="radio" name="manage-list">
+        <ul>
+          <li>
+              <button class="manage-list-button questions-button select" onClick='getManageSelectData("questions", 1)'>문제 목록</button>
+          </li>
+          <li>
+              <button class="manage-list-button questions-button insert">문제 등록</button>
+          </li>
+          <li>
+              <button class="manage-list-button questions-button update">문제 수정</button>
+          </li>
+          <li>
+              <button class="manage-list-button questions-button delete">문제 삭제</button>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 공지 관리 -->
+      <div class="manage-list notice">
+        <label class='manage-list-title notice' for="manage-list-notice">공지 관리</label>
+        <input id='manage-list-notice' type="radio" name="manage-list">
+        <ul>
+          <li>
+              <button class="manage-list-button notice-button select" onClick='getManageSelectData("notice", 1)'>공지 목록</button>
+          </li>
+          <li>
+              <button class="manage-list-button notice-button insert">공지 등록</button>
+          </li>
+          <li>
+              <button class="manage-list-button notice-button update">공지 수정</button>
+          </li>
+          <li>
+              <button class="manage-list-button notice-button delete">공지 삭제</button>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 신고 관리 -->
+      <div class="manage-list report">
+        <label class='manage-list-title report' for="manage-list-report">신고 관리</label>
+        <input id='manage-list-report' type="radio" name="manage-list">
+        <ul>
+          <li>
+              <button class="manage-list-button report-button select" onClick='getManageSelectData("report", 1)'>신고 목록</button>
+          </li>
+          <li>
+              <button class="manage-list-button report-button insert">신고 등록</button>
+          </li>
+          <li>
+              <button class="manage-list-button report-button update">신고 수정</button>
+          </li>
+          <li>
+              <button class="manage-list-button report-button delete">신고 삭제</button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <section class='main-section'>
+      <!-- select -->
+      <link rel="stylesheet" href="../../css/admin/manage_list.css">
+      <section class='detail-section list-data hidden'>
+        <!-- member -->
+        <div class="manage-list-block member hidden">
+          <div class="manage-list-dashboard-block">
+
+          </div>
+          <div class="manage-list-table-block">
+            <table id='manage-list-table-member' class='manage-list-table'>
+              <thead>
+                <tr>
+                  <th class='no'>No</th>
+                  <th class='email'>Email</th>
+                  <th class='name'>Name</th>
+                  <th class='path'>Path</th>
+                  <th class='date'>RegDate</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- dynamic-data -->
+              </tbody>
+            </table>
+            <div class="page-controller">
+              <div class="page-buttons">
+                <!-- dynamic-data -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- questions -->
+        <div class="manage-list-block questions hidden">
+          <div class="manage-list-dashboard-block">
+
+          </div>
+          <div class="manage-list-table-block">
+            <table id='manage-list-table-questions' class='manage-list-table'>
+              <thead>
+                <tr>
+                  <th class='no'>No</th>
+                  <th class='subject'>Subject</th>
+                  <th class='regno'>Regno</th>
+                  <th class='date'>Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- dynamic-data -->
+              </tbody>
+            </table>
+            <div class="page-controller">
+              <div class="page-buttons">
+                <!-- dynamic-data -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- notice -->
+        <div class="manage-list-block notice hidden">
+          <div class="manage-list-dashboard-block">
+
+          </div>
+          <div class="manage-list-table-block">
+            <table id='manage-list-table-notice' class='manage-list-table'>
+              <thead>
+                <tr>
+                  <th class='no'>No</th>
+                  <th class='subject'>Subject</th>
+                  <th class='author'>Author</th>
+                  <th class='topic'>Topic</th>
+                  <th class='date'>Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- dynamic-data -->
+              </tbody>
+            </table>
+            <div class="page-controller">
+              <div class="page-buttons">
+                <!-- dynamic-data -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- report -->
+        <div class="manage-list-block report hidden">
+          <div class="manage-list-dashboard-block">
+
+          </div>
+          <div class="manage-list-table-block">
+            <table id='manage-list-table-report' class='manage-list-table'>
+              <thead>
+                <tr>
+                  <th class='no'>No</th>
+                  <th class='qNo'>qNo</th>
+                  <th class='mNo'>mNo</th>
+                  <th class='type'>Type</th>
+                  <th class='date'>Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- dynamic-data -->
+              </tbody>
+            </table>
+            <div class="page-controller">
+              <div class="page-buttons">
+                <!-- dynamic-data -->
+              </div>
+            </div>
+            <div class="event-buttons">
+              <button class="event-button list create" type="button">create</button>
+              <button class="event-button viewer update" type="button">update</button>
+              <button class="event-button viewer delete" type="button">delete</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <link rel="stylesheet" href="../../css/admin/manage_viewer.css">
+      <section class='detail-section viewer-data hidden'>
+        <div class="manage-viewer-block member">
+          <section class='back-controller'>
+            <button type="button" onClick='getManageSelectData("member", 1)'>뒤로가기</button>
+          </section>
+          <section class="manage-viewer-default-info">
+            <div class="user-default-info status">
+              <div class="user-status title">
+                <div class="user-status-no title">
+                  <span>no</span>
+                </div>
+                <div class="user-status-email title">
+                  <span>email</span>
+                </div>
+                <div class="user-status-name title">
+                  <span>name</span>
+                </div>
+                <div class="user-status-path title">
+                  <span>path</span>
+                </div>
+              </div>
+              <div class="user-status contents">
+                <div class="user-status-no contents">
+                  <span class='user-status-data no'>10</span>
+                </div>
+                <div class="user-status-email contents">
+                  <span class='user-status-data email'>dnjsakf@naver.com</span>
+                </div>
+                <div class="user-status-name contents">
+                  <span class='user-status-data name'>admin</span>
+                </div>
+                <div class="user-status-path contents">
+                  <span class='user-status-data path'>0_admin</span>
+                </div>
+              </div>
+            </div>
+            <div class="user-default-info setting">
+              <div class="user-setting title">
+                <div class="user-setting-theme title">
+                  <span>setting_editor_theme</span>
+                </div>
+                <div class="user-setting-language title">
+                  <span>setting_editor_language</span>
+                </div>
+                <div class="user-setting-font title">
+                  <span>setting_editor_font</span>
+                </div>
+                <div class="user-setting-fontsize title">
+                  <span>setting_editor_fontsize</span>
+                </div>
+              </div>
+              <div class="user-setting contents">
+                <div class="user-setting-theme contents">
+                  <span class='user-status-data setting_editor_theme'>midnight</span>
+                </div>
+                <div class="user-setting-language contents">
+                  <span class='user-status-data setting_editor_langauge'>python</span>
+                </div>
+                <div class="user-setting-font contents">
+                  <span class='user-status-data setting_editor_font'>Arial</span>
+                </div>
+                <div class="user-setting-fontsize contents">
+                  <span class='user-status-data setting_editor_fontsize'>15px</span>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- qState Infomation -->
+          <section class="manage-viewer-detail-info">
+            <table id='manage-viewer-table-member' class='manage-viewer-table'>
+              <thead>
+                <tr>
+                  <th class='no'>no</th>
+                  <th class='qNo'>qNo</th>
+                  <!-- <th class='mNo'>mNo</th> -->
+                  <th class='language'>language</th>
+                  <th class='sourceCode'>sourceCode</th>
+                  <th class='result'>result</th>
+                  <th class='date'>date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- dynamic data -->
+                <!--
+                  <tr>
+                    <td class='no'>no</td>
+                    <td class='qNo'>qNo</td>
+                    <td class='mNo'>mNo</td>
+                    <td class='language'>language</td>
+                    <td class='sourceCode'>sourceCode</td>
+                    <td class='result'>result</td>
+                    <td class='date'>date</td>
+                  </tr>
+               -->
+              </tbody>
+            </table>
+            <div class="page-controller">
+              <div class="page-buttons">
+                <!-- dynamic-data -->
+                <button type="button" name="button">1</button>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div class="manage-viewer-block questions">
+          <section class='back-controller'>
+            <button type="button" onClick='getManageSelectData("member", 1)'>뒤로가기</button>
+          </section>
+          <section class="manage-viewer-default-info">
+            asdf
+          </section>
+        </div>
+      </section>
+    </section>
+  </body>
+</html>

@@ -48,8 +48,8 @@ let backjoon = require('./config/crawler/backjoon.js')(conn);
 app.use('/crawler', [backjoon]);
 
 // 테스트 라우터
-let test = require('./route/tester/test.js')();
-app.use('/test', [test]);
+// let test = require('./route/tester/test.js')();
+// app.use('/test', [test]);
 
 // 서버 연결
 app.listen(PORT, function(req, res){

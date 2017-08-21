@@ -2,14 +2,33 @@ $(function(){
 	/*  AJAX
 	 *  get list data
 	 */
-	ajax_get_data = function(type, tableName, fieldNames, getDataInfo){
+	ajaxGetSelectData = function(tableName, fieldNames, getDataInfo){
     return new Promise(function(resolve, reject){
       $.ajax({
-  			url:'/admin/manage/member/' + type,
+  			url:'/admin/manage/select/data/'+tableName,
   			type:'GET',
   			dataType:'JSON',
   			data:{
-  				'tableName' : tableName,
+  				'fieldNames' : fieldNames,
+  				'getDataInfo' : getDataInfo,
+  			},
+  			error: function(error){
+          reject(error);
+  			},
+  			success: function(result){
+          resolve(result);
+  			},
+  		});
+    });
+	};
+
+	ajaxGetViewerData = function(tableName, fieldNames, getDataInfo){
+		return new Promise(function(resolve, reject){
+      $.ajax({
+  			url:'/admin/manage/viewer/data/'+tableName,
+  			type:'GET',
+  			dataType:'JSON',
+  			data:{
   				'fieldNames' : fieldNames,
   				'getDataInfo' : getDataInfo,
   			},
