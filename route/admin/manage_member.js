@@ -1,7 +1,7 @@
 module.exports = function(conn){
-  const route = require('express').Router();
+  const router = require('express').Router();
 
-  route.post('/member/restrict', function(req, res){
+  router.post('/member/restrict', function(req, res){
     const update = req.body.update,
           user = req.body.user;
     
@@ -18,20 +18,31 @@ module.exports = function(conn){
 
   // event setting
   const eventTags = {
-    'restrict_event': 
+    restrict_event: 
       '<button class="restrict-save" value="{{replace.event}}">save</button>'+
       '<button class="restrict-init" value="{{replace.event}}">init</button>',
-    'restrict_type': 
+    restrict_type: 
       '<select class="restrict-type" name="restrict_type">' +
       '   <option value=0>정상</option>' +
       '   <option value=1>영구정지</option>' +
       '   <option value=2>3일 정지</option>' +
       '   <option value=3>7일 정지</option>' +
       '</select>',
-    'restrict_comment':
+    restrict_comment:
       '<textarea class="restrict-comment" name="restrict_comment">{{replace_.comment}}</textarea>'
   }
-  route.get('/list/member', function(req, res ){
+  
+  router.get('/viewer/member', (req, res)=>{
+    
+    
+    return res.status(200).json({
+      result: true,
+      data: ''
+    });
+  });
+
+
+  router.get('/list/member', function(req, res ){
     const page = req.query.page,
           rows = req.query.rows,
           count = (page - 1) * rows;
@@ -93,7 +104,7 @@ module.exports = function(conn){
       }
     });
   });
-  return route;
+  return router;
 };
 
 

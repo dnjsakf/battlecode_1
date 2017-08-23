@@ -2,9 +2,18 @@ module.exports = function(conn){
   const router = require('express').Router();
   // event setting
   const eventTags = {
-    'content':
+    content:
       '<textarea>{{replace.content}}</textarea>'
   };
+  router.get('/viewer/report', (req, res)=>{
+    
+
+
+    return res.status(200).json({
+      result: true,
+      data: ''
+    });
+  });
   
   router.get('/list/report', (req,res)=>{
     const page = req.query.page,

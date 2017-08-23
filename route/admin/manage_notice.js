@@ -126,7 +126,7 @@ function questionsTableTagConvert(data, eventTags){
         tableBodyTag += dataItem[fieldItem];
         // 이벤트가 있는 태그
       } else if(replaceTopicRegex.test(eventTags[fieldItem])){
-        let replaceText = dataItem[fieldItem] === 1 ? 'selected' : '';
+        let replaceText = parseInt(dataItem[fieldItem]) === 1 ? 'selected' : '';
         tableBodyTag += (eventTags[fieldItem]).replace(replaceTopicRegex, replaceText);
       } else if(replaceContentRegex.test(eventTags[fieldItem])){
         tableBodyTag += (eventTags[fieldItem]).replace(replaceContentRegex, dataItem[fieldItem]);

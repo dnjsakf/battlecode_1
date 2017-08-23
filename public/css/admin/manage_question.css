@@ -1,0 +1,177 @@
+section.main-section{
+  overflow-y: scroll;
+}
+
+section#data-detail-veiwer,
+section#data-simple-viewer{
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+
+  font-size: 20px;
+}
+section#data-simple-viewer > table{
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+section#data-simple-viewer > table tr:hover{
+  cursor: pointer;
+}
+section#data-simple-viewer > table th,
+section#data-simple-viewer > table td{
+  height: 40px;
+  padding: 0;
+  margin: 0;
+}
+section#data-simple-viewer > table td.restrict_comment{
+  text-align: left;
+}
+
+section#data-simple-viewer > table select{
+  width: 100%;
+}
+section#data-simple-viewer > table textarea{
+  width: 100%;
+  height: 30px;
+}
+section#data-simple-viewer > table textarea:focus{
+  z-index: 1;
+  position: absolute;
+  
+  width: 300px;
+  height: 100px;
+  animation-name: sizeUp;
+  animation-duration: 0.5s;
+}
+@keyframes sizeUp {
+  from{
+    height: 30px;
+  }
+  to {
+    height: 100px;
+  }
+}
+/* section#data-simple-viewer > table textarea:not(:focus){
+  width: 100%;
+  height: 30px;
+  animation-name: sizeDown;
+  animation-duration: 0.5s;
+}
+@keyframes sizeDown {
+  from{
+    height: 300px;
+  }
+  to {
+    height: 30px;
+  }
+}
+*/
+div.page-controller{
+  position: absolute;
+  bottom: 10px;
+  width: calc(100% - 320px);
+  font-size: 0;
+}
+div.page-controller > div.page-buttons{
+  width: 300px;
+  height: 40px;
+
+  margin: 0 auto;
+  padding: 10px;
+  
+  text-align: center;
+}
+div.page-controller > div.page-buttons > button{
+  height: 20px;
+
+  font-size: 18px;
+}
+
+
+section#data-detail-veiwer{
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+
+  font-size: 20px;
+}
+.hidden{
+  display: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/********************************/
+/******* 문제정보 - 문제내용 *****/
+/*******************************/
+section.question-info{
+  float: left;
+  width: 50%;
+}
+section.question-info img{
+  max-width: 100%;
+  height: 100%;
+}
+section.question-info ul{
+  list-style-type: none;
+}
+div.question-info{
+  border: 1px solid;
+  margin: 5px auto;
+  margin-top: 0px;
+  padding: 5px;
+  max-width: 1020px;
+}
+div.question-info > div > p,
+div.question-info > div > pre,
+div.question-info > div > ul,
+div.question-info > h3{
+  margin: 0;
+  width:100%;
+  padding: 5px 10px 5px 10px;
+}
+
+
+
+/********************************/
+/*** 문제정보 - 테스트케이스 *****/
+/*******************************/
+div.question-info.testcase{
+  overflow: auto;
+}
+div.testcase > strong{
+  width: 100%;
+}
+div.case-row{
+  width: 100%;
+  border-bottom-style: dotted;
+  border-bottom-width: 1px;
+}
+div.case-row > div.title{
+  background: rgb(219, 222, 202);
+  text-align: center;
+}
+div.testcase.input,
+div.testcase.output{
+  float: left;
+  width: 50%;
+}
+div.case-row table{
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+td.no{
+  width: 10%;
+}

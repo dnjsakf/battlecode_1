@@ -91,94 +91,7 @@
       </div>
     </nav>
   
-    <style>
-      section#data-simple-viewer{
-        width: 100%;
-        height: 100%;
-        padding: 10px;
-
-        font-size: 20px;
-      }
-      section#data-simple-viewer > table{
-        width: 100%;
-        text-align: center;
-        border-collapse: collapse;
-      }
-      section#data-simple-viewer > table tr:hover{
-        cursor: pointer;
-      }
-      section#data-simple-viewer > table th,
-      section#data-simple-viewer > table td{
-        height: 40px;
-        padding: 0;
-        margin: 0;
-      }
-      section#data-simple-viewer > table td.restrict_comment{
-        text-align: left;
-      }
-
-      section#data-simple-viewer > table select{
-        width: 100%;
-      }
-      section#data-simple-viewer > table textarea{
-        width: 100%;
-        height: 30px;
-      }
-      section#data-simple-viewer > table textarea:focus{
-        z-index: 1;
-        position: absolute;
-        
-        width: 300px;
-        height: 100px;
-        animation-name: sizeUp;
-        animation-duration: 0.5s;
-      }
-      @keyframes sizeUp {
-        from{
-          height: 30px;
-        }
-        to {
-          height: 100px;
-        }
-      }
-      /* section#data-simple-viewer > table textarea:not(:focus){
-        width: 100%;
-        height: 30px;
-        animation-name: sizeDown;
-        animation-duration: 0.5s;
-      }
-      @keyframes sizeDown {
-        from{
-          height: 300px;
-        }
-        to {
-          height: 30px;
-        }
-      }
- */
-
-
-      div.page-controller{
-        position: absolute;
-        bottom: 10px;
-        width: calc(100% - 320px);
-        font-size: 0;
-      }
-      div.page-controller > div.page-buttons{
-        width: 300px;
-        height: 40px;
-
-        margin: 0 auto;
-        padding: 10px;
-        
-        text-align: center;
-      }
-      div.page-controller > div.page-buttons > button{
-        height: 20px;
-
-        font-size: 18px;
-      }
-    </style>
+    <link rel="stylesheet" href="../../css/admin/manage_question.css">
     <section class='main-section'>
       <section id="data-simple-viewer">
         <table>
@@ -192,6 +105,14 @@
       </section>
       <section id="data-detail-viewer">
         <!-- ajax-data table -->
+        <div class='data-display'>
+          <!-- ajax-data data -->
+        </div>
+        <div class='page-controller'>
+          <div class='page-buttons'>
+            <!-- ajax-data buttons -->
+          </div>
+        </div>
       </section>
     </section>
   </body>
